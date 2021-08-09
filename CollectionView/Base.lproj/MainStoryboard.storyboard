@@ -26,7 +26,7 @@
         <!--Character Gallery-->
         <scene sceneID="Vy6-Ll-qpW">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="dmE-Kn-TpH" customClass="ViewController" sceneMemberID="viewController">
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="dmE-Kn-TpH" customClass="CharacterGalleryViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="esX-eC-dy5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -18,14 +18,8 @@ import UIKit
 let kDetailedViewControllerID = "DetailView";    // view controller storyboard id
 let kCellID = "cellID";                          // UICollectionViewCell storyboard id
 
-struct BreakingBadCharacter: Decodable {
-    let char_id: Int
-    let name: String
-    let img: String
-}
-
-@objc(ViewController)
-class ViewController: UICollectionViewController {
+@objc(CharacterGalleryViewController)
+class CharacterGalleryViewController: UICollectionViewController {
     var breakingBadCharacters = [BreakingBadCharacter]()
     
     override func viewDidLoad() {
@@ -37,7 +31,7 @@ class ViewController: UICollectionViewController {
                 do {
                     self.breakingBadCharacters = try JSONDecoder().decode([BreakingBadCharacter].self, from: data!)
                 } catch {
-                    print("Error")
+                    print("Error decoding json")
                 }
                 
                 DispatchQueue.main.async {
@@ -60,34 +54,24 @@ class ViewController: UICollectionViewController {
         cell.label.text = breakingBadCharacter.name
         cell.image.contentMode = .scaleAspectFit
         
-        // Clean this up on the call side.
-        UIImage.download(from: breakingBadCharacter.img) { image in
-            guard let image = image else { return }
-            
-            cell.image.image = image
+        if let imageURL = URL(string: breakingBadCharacters[indexPath.row].imageURL) {
+            ImageService.getImage(with: imageURL) { image in
+                
+                cell.image.image = image
+            }
         }
         
         return cell
     }
     
-    // the user tapped a collection item, load and set the image on the detail view controller
-    //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             let selectedIndexPath = self.collectionView!.indexPathsForSelectedItems![0]
-            
-            // load the image, to prevent it from being cached we use 'initWithContentsOfFile'
-//            let imageNameToLoad = "\(selectedIndexPath.row)_full"
-//            let image = UIImage(named: imageNameToLoad)
             let detailViewController = segue.destination as! DetailViewController
-            detailViewController.imageURLString = breakingBadCharacters[selectedIndexPath.row].img
-            detailViewController.charId = breakingBadCharacters[selectedIndexPath.row].char_id
-            detailViewController.name = breakingBadCharacters[selectedIndexPath.row].name
             
-//            detailViewController.image = UIImageView()
-//            detailViewController.image?.contentMode = .scaleAspectFill
-//            detailViewController.image?.downloaded(from: breakingBadCharacters[selectedIndexPath.row].img)
-//
+            detailViewController.imageURL = breakingBadCharacters[selectedIndexPath.row].imageURL
+            detailViewController.id = breakingBadCharacters[selectedIndexPath.row].id
+            detailViewController.name = breakingBadCharacters[selectedIndexPath.row].name
         }
     }
     

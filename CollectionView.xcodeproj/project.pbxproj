@@ -13,14 +13,14 @@
 		53C4ED38159E740C0019285D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C4ED37159E740C0019285D /* Foundation.framework */; };
 		53C4ED3A159E740C0019285D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C4ED39159E740C0019285D /* CoreGraphics.framework */; };
 		53C4ED49159E740D0019285D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53C4ED47159E740D0019285D /* MainStoryboard.storyboard */; };
-		8C90603026BE07630046733A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C90602F26BE07630046733A /* Extensions.swift */; };
-		8CC89CF826BF513E00CF5F5A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC89CF726BF513E00CF5F5A /* ImageCache.swift */; };
 		8CC89CFA26C0B31900CF5F5A /* LikesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC89CF926C0B31900CF5F5A /* LikesCollectionViewController.swift */; };
+		8CC89CFE26C18D8900CF5F5A /* BreakingBadCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC89CFD26C18D8900CF5F5A /* BreakingBadCharacter.swift */; };
+		8CC89D0026C1A38D00CF5F5A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC89CFF26C1A38D00CF5F5A /* ImageService.swift */; };
 		D75022011BE02C7F003EEFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75021FC1BE02C7F003EEFA9 /* AppDelegate.swift */; };
 		D75022021BE02C7F003EEFA9 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75021FD1BE02C7F003EEFA9 /* Cell.swift */; };
 		D75022031BE02C7F003EEFA9 /* CustomCellBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75021FE1BE02C7F003EEFA9 /* CustomCellBackground.swift */; };
 		D75022041BE02C7F003EEFA9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75021FF1BE02C7F003EEFA9 /* DetailViewController.swift */; };
-		D75022051BE02C7F003EEFA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75022001BE02C7F003EEFA9 /* ViewController.swift */; };
+		D75022051BE02C7F003EEFA9 /* CharacterGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75022001BE02C7F003EEFA9 /* CharacterGalleryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,14 +32,14 @@
 		53C4ED37159E740C0019285D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		53C4ED39159E740C0019285D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		53C4ED3D159E740C0019285D /* CollectionView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CollectionView-Info.plist"; sourceTree = "<group>"; };
-		8C90602F26BE07630046733A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		8CC89CF726BF513E00CF5F5A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		8CC89CF926C0B31900CF5F5A /* LikesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCollectionViewController.swift; sourceTree = "<group>"; };
+		8CC89CFD26C18D8900CF5F5A /* BreakingBadCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBadCharacter.swift; sourceTree = "<group>"; };
+		8CC89CFF26C1A38D00CF5F5A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		D75021FC1BE02C7F003EEFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D75021FD1BE02C7F003EEFA9 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		D75021FE1BE02C7F003EEFA9 /* CustomCellBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellBackground.swift; sourceTree = "<group>"; };
 		D75021FF1BE02C7F003EEFA9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		D75022001BE02C7F003EEFA9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D75022001BE02C7F003EEFA9 /* CharacterGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterGalleryViewController.swift; sourceTree = "<group>"; };
 		D75022061BE02EF6003EEFA9 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		D75022071BE02EF6003EEFA9 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		D75022081BE02EF6003EEFA9 /* README2.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README2.md; sourceTree = "<group>"; };
@@ -93,14 +93,14 @@
 			isa = PBXGroup;
 			children = (
 				D75021FC1BE02C7F003EEFA9 /* AppDelegate.swift */,
-				D75022001BE02C7F003EEFA9 /* ViewController.swift */,
+				D75022001BE02C7F003EEFA9 /* CharacterGalleryViewController.swift */,
 				8CC89CF926C0B31900CF5F5A /* LikesCollectionViewController.swift */,
 				D75021FF1BE02C7F003EEFA9 /* DetailViewController.swift */,
 				D75021FD1BE02C7F003EEFA9 /* Cell.swift */,
 				D75021FE1BE02C7F003EEFA9 /* CustomCellBackground.swift */,
+				8CC89CFD26C18D8900CF5F5A /* BreakingBadCharacter.swift */,
+				8CC89CFF26C1A38D00CF5F5A /* ImageService.swift */,
 				53C4ED3C159E740C0019285D /* Supporting Files */,
-				8C90602F26BE07630046733A /* Extensions.swift */,
-				8CC89CF726BF513E00CF5F5A /* ImageCache.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -146,6 +146,7 @@
 				LastUpgradeCheck = 0900;
 				TargetAttributes = {
 					53C4ED30159E740C0019285D = {
+						DevelopmentTeam = 9JR957CP9R;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -187,14 +188,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D75022051BE02C7F003EEFA9 /* ViewController.swift in Sources */,
+				D75022051BE02C7F003EEFA9 /* CharacterGalleryViewController.swift in Sources */,
 				8CC89CFA26C0B31900CF5F5A /* LikesCollectionViewController.swift in Sources */,
+				8CC89D0026C1A38D00CF5F5A /* ImageService.swift in Sources */,
 				D75022011BE02C7F003EEFA9 /* AppDelegate.swift in Sources */,
 				D75022021BE02C7F003EEFA9 /* Cell.swift in Sources */,
 				D75022041BE02C7F003EEFA9 /* DetailViewController.swift in Sources */,
 				D75022031BE02C7F003EEFA9 /* CustomCellBackground.swift in Sources */,
-				8CC89CF826BF513E00CF5F5A /* ImageCache.swift in Sources */,
-				8C90603026BE07630046733A /* Extensions.swift in Sources */,
+				8CC89CFE26C18D8900CF5F5A /* BreakingBadCharacter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +315,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 9JR957CP9R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CollectionView/CollectionView-Prefix.pch";
 				INFOPLIST_FILE = "CollectionView/CollectionView-Info.plist";
@@ -334,6 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 9JR957CP9R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CollectionView/CollectionView-Prefix.pch";
 				INFOPLIST_FILE = "CollectionView/CollectionView-Info.plist";

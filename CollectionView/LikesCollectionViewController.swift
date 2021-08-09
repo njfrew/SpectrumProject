@@ -9,18 +9,16 @@ import UIKit
 
 private let reuseIdentifier = "likeCell"
 
-struct LikedCharacter: Decodable {
-    let name, image_file: String
-    let char_id: Int
-}
-
 class LikesCollectionViewController: UICollectionViewController {
-    var likedCharacters = [LikedCharacter]()
+    var likedCharacters = [BreakingBadCharacter]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        populateCollectionView()
+    }
+
+    private func populateCollectionView() {
         let fileManager = FileManager.default
         guard let url = fileManager.urls(for: .documentDirectory,
                                          in: .userDomainMask).first else {
@@ -32,11 +30,10 @@ class LikesCollectionViewController: UICollectionViewController {
         do {
             let fileURLs = try fileManager.contentsOfDirectory(atPath: breakingBadDirectory.path)
 
-            let jsonFiles = fileURLs.filter { $0.contains(".json") }
-            for filePath in jsonFiles {
+            for filePath in fileURLs {
                 do {
                     let data = try Data(contentsOf: url.appendingPathComponent(breakingBadFolder).appendingPathComponent(filePath))
-                    let likedCharacter = try JSONDecoder().decode(LikedCharacter.self, from: data)
+                    let likedCharacter = try JSONDecoder().decode(BreakingBadCharacter.self, from: data)
                     likedCharacters.append(likedCharacter)
                 } catch {
                     print("Error decoding json file")
@@ -46,10 +43,7 @@ class LikesCollectionViewController: UICollectionViewController {
         } catch {
             print("Error getting files")
         }
-
     }
-
-    // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -62,7 +56,11 @@ class LikesCollectionViewController: UICollectionViewController {
         let likedCharacter = likedCharacters[indexPath.row]
         cell.label.text = likedCharacter.name
         cell.image.contentMode = .scaleAspectFit
-        cell.image.image = UIImage(contentsOfFile: likedCharacter.image_file)
+        if let imageURL = URL(string: likedCharacter.imageURL) {
+            ImageService.getImage(with: imageURL) { image in
+                cell.image.image = image
+            }
+        }
         
         return cell
     }
