@@ -15,16 +15,22 @@ The primary view controller for this app.
 
 import UIKit
 
-let kDetailedViewControllerID = "DetailView";    // view controller storyboard id
-let kCellID = "cellID";                          // UICollectionViewCell storyboard id
+let kDetailedViewControllerID = "DetailView";
+let kCellID = "cellID";
 
 @objc(CharacterGalleryViewController)
 class CharacterGalleryViewController: UICollectionViewController {
-    var breakingBadCharacters = [BreakingBadCharacter]()
+    private var breakingBadCharacters = [BreakingBadCharacter]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // MARK: My idea for stopping api pulling in the background
+        // Wasn't able to sufficiently test if it was working, so I removed the code
+        // let myApp = UIApplication.shared
+        // if myApp.applicationState != .background
+        
+        // Pulls from api and updates the UI on the main thread
         let url = URL(string: "https://www.breakingbadapi.com/api/characters")
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
@@ -36,7 +42,6 @@ class CharacterGalleryViewController: UICollectionViewController {
                 
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
-                    print(self.breakingBadCharacters.count)
                 }
             }
         }.resume()
@@ -56,7 +61,6 @@ class CharacterGalleryViewController: UICollectionViewController {
         
         if let imageURL = URL(string: breakingBadCharacters[indexPath.row].imageURL) {
             ImageService.getImage(with: imageURL) { image in
-                
                 cell.image.image = image
             }
         }
@@ -69,9 +73,10 @@ class CharacterGalleryViewController: UICollectionViewController {
             let selectedIndexPath = self.collectionView!.indexPathsForSelectedItems![0]
             let detailViewController = segue.destination as! DetailViewController
             
-            detailViewController.imageURL = breakingBadCharacters[selectedIndexPath.row].imageURL
-            detailViewController.id = breakingBadCharacters[selectedIndexPath.row].id
-            detailViewController.name = breakingBadCharacters[selectedIndexPath.row].name
+            let breakingBadCharacter = breakingBadCharacters[selectedIndexPath.row]
+            detailViewController.imageURL = breakingBadCharacter.imageURL
+            detailViewController.id = breakingBadCharacter.id
+            detailViewController.name = breakingBadCharacter.name
         }
     }
     

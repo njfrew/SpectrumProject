@@ -12,6 +12,7 @@ import UIKit
 class ImageService {
     static let cache = NSCache<NSString, UIImage>()
     
+    // Dowload the image at the url and cache it
     static func downloadImage(with url: URL, completion: @escaping (_ image: UIImage?) -> ()) {
         let dataTask = URLSession.shared.dataTask(with: url) { data, responseURL, error in
             var downloadedImage: UIImage?
@@ -32,6 +33,7 @@ class ImageService {
         dataTask.resume()
     }
     
+    // Check if the image is already cached or needs to be downloaded
     static func getImage(with url: URL, completion: @escaping (_ image: UIImage?) -> ()) {
         if let image = cache.object(forKey: url.absoluteString as NSString) {
             completion(image)

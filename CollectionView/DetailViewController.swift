@@ -21,8 +21,8 @@ class DetailViewController: UIViewController {
     var id: Int?
     var name: String?
     
-    var isLiked = false
-    let tapRecognizer = UITapGestureRecognizer()
+    private var isLiked = false
+    private let tapRecognizer = UITapGestureRecognizer()
     
     @IBOutlet private var imageView: UIImageView!
     
@@ -40,6 +40,7 @@ class DetailViewController: UIViewController {
         imageView.addGestureRecognizer(tapRecognizer)
     }
     
+    // Sets up which message and button to present when the image is tapped
     @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
         let fileManager = FileManager.default
         
@@ -52,7 +53,6 @@ class DetailViewController: UIViewController {
         
         let breakingBadFolder = "breaking-bad-folder"
         let jsonFile = url.appendingPathComponent(breakingBadFolder).appendingPathComponent("liked\(String(id)).json")
-        
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
@@ -80,7 +80,8 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func createFile() -> URL? {
+    // Gets directory path and file path and creates them if they don't exist
+    private func createFile() -> URL? {
         let fileManager = FileManager.default
         
         guard let url = fileManager.urls(for: .documentDirectory,
@@ -104,7 +105,8 @@ class DetailViewController: UIViewController {
         return jsonFile
     }
     
-    func writeToFiles() {
+    // Saves the character object to a json file
+    private func writeToFiles() {
         guard let jsonFile = createFile(),
               let name = name,
               let imageURL = imageURL,
@@ -125,7 +127,8 @@ class DetailViewController: UIViewController {
         
     }
     
-    func deleteFile() {
+    // Uses the path of the file to go and delete it
+    private func deleteFile() {
         let fileManager = FileManager.default
         
         guard let url = fileManager.urls(for: .documentDirectory,

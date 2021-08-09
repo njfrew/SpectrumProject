@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "likeCell"
 
 class LikesCollectionViewController: UICollectionViewController {
-    var likedCharacters = [BreakingBadCharacter]()
+    private var likedCharacters = [BreakingBadCharacter]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,7 @@ class LikesCollectionViewController: UICollectionViewController {
     }
 
     private func populateCollectionView() {
+        // Get directory path
         let fileManager = FileManager.default
         guard let url = fileManager.urls(for: .documentDirectory,
                                          in: .userDomainMask).first else {
@@ -29,7 +30,8 @@ class LikesCollectionViewController: UICollectionViewController {
         
         do {
             let fileURLs = try fileManager.contentsOfDirectory(atPath: breakingBadDirectory.path)
-
+            
+            // Iterate through files and grab data to populate the likedCharacters array
             for filePath in fileURLs {
                 do {
                     let data = try Data(contentsOf: url.appendingPathComponent(breakingBadFolder).appendingPathComponent(filePath))
@@ -46,7 +48,6 @@ class LikesCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         likedCharacters.count
     }
 
